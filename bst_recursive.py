@@ -12,6 +12,18 @@ class BST:
         else:
             self.root = BSTNode(data)
 
+    def insert(self, data, cur):
+        if self.root is None:
+            self.root = BSTNode(data)
+            return
+        if cur is None:
+            return BSTNode(data)
+        if data > cur.data:
+            cur.right = self.insert(data, cur.right)
+        else:
+            cur.left = self.insert(data, cur.left)
+        return cur
+
     def travel(self, cur):
         if cur is None:
             return
