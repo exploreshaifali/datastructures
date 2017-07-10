@@ -56,3 +56,8 @@ class BST:
         if cur.right is None:
             return cur.data
         return self.min(cur.right)
+
+    def get_height(self, cur):
+        if cur is None:
+            return -1
+        return max(self.get_height(cur.left), self.get_height(cur.right)) + 1
