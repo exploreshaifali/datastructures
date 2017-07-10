@@ -42,3 +42,10 @@ class BST:
             return self.search(data, cur.right)
         else:
             return self.search(data, cur.left)
+
+    def min(self, cur):
+        if cur is None:
+            return
+        if cur.left is None:
+            return cur.data
+        return self.min(cur.left)
