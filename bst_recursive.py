@@ -32,3 +32,13 @@ class BST:
             self.travel(cur.left)
         if cur.right:
             self.travel(cur.right)
+
+    def search(self, data, cur):
+        if cur is None:
+            return False
+        if data == cur.data:
+            return True
+        if data > cur.data:
+            return self.search(data, cur.right)
+        else:
+            return self.search(data, cur.left)
