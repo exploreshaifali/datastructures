@@ -49,3 +49,10 @@ class BST:
         if cur.left is None:
             return cur.data
         return self.min(cur.left)
+
+    def max(self, cur):
+        if cur is None:
+            return
+        if cur.right is None:
+            return cur.data
+        return self.min(cur.right)
