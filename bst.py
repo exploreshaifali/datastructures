@@ -30,3 +30,23 @@ class BST:
                         break
                     else:
                         temp = temp.right
+
+    def search(self, data):
+        if self.root is None:
+            return False
+        temp = self.root
+        if temp.data == data:
+            return True
+        while temp is not None:
+            if data > temp.data:
+                if temp.right is None:
+                    return False
+                elif temp.data == data:
+                    return True
+                temp = temp.right
+            else:
+                if temp.left is None:
+                    return False
+                elif temp.data == data:
+                    return True
+                temp = temp.left
