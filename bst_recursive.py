@@ -63,6 +63,8 @@ class BST:
         return max(self.get_height(cur.left), self.get_height(cur.right)) + 1
 
     def bfs(self):
+        if self.root is None:
+            return
         temp = self.root
         # initialize a queue which will help in level order traversal
         q = [temp]
