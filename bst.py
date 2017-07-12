@@ -1,3 +1,5 @@
+from collections import deque
+
 class BSTNode:
     def __init__(self, data, left=None, right=None):
         self.data = data
@@ -73,12 +75,14 @@ class BST:
         return temp.data
 
     def bfs(self):
+        if self.root is None:
+            return
         temp = self.root
         # initialize a queue which will help in level order traversal
-        q = [temp]
+        q = deque([temp])
         while q:
             # print(q.data)
-            temp = q.pop(0)
+            temp = q.popleft()
             if temp.data:
                 print(temp.data, end=', ')
             if temp.left:
