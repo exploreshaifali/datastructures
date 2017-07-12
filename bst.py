@@ -50,3 +50,12 @@ class BST:
                 elif temp.data == data:
                     return True
                 temp = temp.left
+
+    def travel(self, cur):
+        if cur is None:
+            return
+        print(cur.data, end = '')
+        if cur.left:
+            self.travel(cur.left)
+        if cur.right:
+            self.travel(cur.right)
