@@ -59,3 +59,15 @@ class BST:
             self.travel(cur.left)
         if cur.right:
             self.travel(cur.right)
+
+    def min(self):
+        temp = self.root
+        while temp.left is not None:
+            temp = temp.left
+        return temp.data
+
+    def max(self):
+        temp = self.root
+        while temp.right is not None:
+            temp = temp.right
+        return temp.data
