@@ -49,7 +49,40 @@ class LinkedList:
         end_node = temp
         end_node.nex = data_node
 
+    def detect_loop(self):
+        temp = self.root
+        if temp is None:
+            return False
+        slow = temp
+        fast = temp
+        while slow and fast and fast.nex:
+            slow = slow.nex
+            fast = fast.nex.nex
+            if fast == slow:
+                return True
+        return False
+
+
 
 if __name__ == '__main__':
-    a = LinkedList(9)
-    a.pprint()
+    n = LinkedList(5)
+    n.insert(6)
+    n.insert(7)
+    n.insert(8)
+    n.insert(9)
+    n.insert(0)
+    print(n.detect_loop())
+    # even length of loop
+    n.create_loop(7)
+    print(n.detect_loop())
+
+    # odd length of loop
+    a = LinkedList(5)
+    a.insert(6)
+    a.insert(7)
+    a.insert(8)
+    a.insert(9)
+    a.insert(0)
+    print(a.detect_loop())
+    a.create_loop(7)
+    print(a.detect_loop())
