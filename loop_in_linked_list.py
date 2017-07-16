@@ -70,6 +70,22 @@ class LinkedList:
             c += 1
         return c
 
+    def get_intersection_point(self, n):
+        # code is same as that of finding nth element from end.
+        temp = self.root
+        if temp is None:
+            return None
+        first = temp
+        second = temp
+        i = 1;
+        while i < n:
+            second = second.nex
+            i += 1
+        while second.nex != first:
+            first = first.nex
+            second = second.nex
+        return first.data
+
 
 
 
@@ -86,7 +102,10 @@ if __name__ == '__main__':
     node = n.detect_loop()
     print(node)
     if node:
-        print(n.get_loop_length(node))
+        print("Linked list have loop")
+        l = n.get_loop_length(node)
+        print("length of loop is", l)
+        print(n.get_intersection_point(l))
 
     # odd length of loop
     a = LinkedList(5)
@@ -99,4 +118,5 @@ if __name__ == '__main__':
     node = a.detect_loop()
     print(node)
     if node:
-        print(a.get_loop_length(node))
+        l = a.get_loop_length(node)
+        print(a.get_intersection_point(l))
