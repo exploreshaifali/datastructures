@@ -33,6 +33,21 @@ class LinkedList:
             temp = temp.nex
         return False
 
+    def create_loop(self, data):
+        """Helper method to create link from last node to the node which
+           have data equals to data in parameter.
+        """
+        temp = self.root
+        if temp is None:
+            return False
+        data_node = None
+        end_node = None
+        while temp.nex is not None:
+            if temp.data == data:
+                data_node = temp
+            temp = temp.nex
+        end_node = temp
+        end_node.nex = data_node
 
 
 if __name__ == '__main__':
